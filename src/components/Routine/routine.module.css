@@ -1,4 +1,4 @@
-.vista-ampliada {
+.vistaAmpliada {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,7 +11,7 @@
 }
 
 /* Estilos para la imagen ampliada */
-.vista-ampliada img {
+.vistaAmpliada img {
   max-width: 90%;
   max-height: 90%;
   border-radius: 5px;
