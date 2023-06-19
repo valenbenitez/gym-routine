@@ -16,11 +16,15 @@ function App() {
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'column',
+        overflowY: 'auto',
+        overflowX: 'hidden',
       }}
     >
       <h1>Easy GYM</h1>
       <p className="read-the-docs">Chino volve a jugar al futbol</p>
-      <Routine />
+      <div style={{ width: '60%' }}>
+        <Routine />
+      </div>
     </div>
   )
 }
