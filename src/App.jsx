@@ -61,8 +61,9 @@ function App() {
         overflowX: 'hidden',
       }}
     >
-      <h1>Easy GYM</h1>
-      <p className="read-the-docs">Chino volve a jugar al futbol</p>
+      <div>
+        <h1>Mi rutina</h1>
+      </div>
       <h2>
         {tiempo.minutos}:{tiempo.segundos}
       </h2>
