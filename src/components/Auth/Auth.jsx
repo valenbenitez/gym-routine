@@ -56,7 +56,7 @@ export default function SignIn() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" sx={{ overflowY: 'hidden', overflowX: 'hidden' }}>
         <CssBaseline />
         <Box
           sx={{
@@ -64,7 +64,7 @@ export default function SignIn() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            overflowY: 'auto',
+            overflowY: 'hidden',
             overflowX: 'hidden',
           }}
         >
