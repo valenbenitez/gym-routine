@@ -72,6 +72,7 @@ export default function SignIn() {
           </Typography>
           <Box component="form" noValidate sx={{ mt: 1 }}>
             <button
+              onClick={signInWithGoogle}
               style={{
                 display: 'flex',
                 alignItems: 'center',
