@@ -12,28 +12,18 @@ import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth'
 import { app } from '../../config/firebase/firebase'
 import { useNavigate } from 'react-router-dom'
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Mi Rutina
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  )
-}
-
-// TODO remove, this demo shouldn't need to reset the theme.
-
-const defaultTheme = createTheme()
-
 export default function SignIn() {
   app
   const provider = new GoogleAuthProvider()
   const auth = getAuth()
   const navigate = useNavigate()
+  const token = localStorage.getItem('userToken')
+
+  React.useEffect(() => {
+    if (typeof token === 'string') {
+      navigate('/home')
+    }
+  }, [])
 
   function signInWithGoogle() {
     event.preventDefault()
@@ -56,47 +46,62 @@ export default function SignIn() {
 
   return (
     // <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs" sx={{ overflowY: 'hidden', overflowX: 'hidden' }}>
-        <CssBaseline />
+    <Container component="main" maxWidth="xs" sx={{ overflowY: 'hidden', overflowX: 'hidden' }}>
+      <CssBaseline />
+      <Box
+        sx={{
+          marginTop: 2,
+          height: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'flex-start',
+          overflowY: 'hidden',
+          overflowX: 'hidden',
+        }}
+      >
+        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5" sx={{ fontFamily: 'Montserrat' }}>
+          Iniciar sesión
+        </Typography>
         <Box
+          component="form"
+          noValidate
           sx={{
-            marginTop: 8,
+            mt: 1,
+            height: '60%',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            justifyContent: 'center',
             overflowY: 'hidden',
             overflowX: 'hidden',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
-          <Box component="form" noValidate sx={{ mt: 1 }}>
-            <button
-              onClick={signInWithGoogle}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '10px 24px',
-                gap: '8px',
-                width: '320px',
-                height: '44px',
-                backgroundColor: '#eeeef7',
-                borderRadius: '4px',
-                color: '#000',
-              }}
-            >
-              <GoogleIcon />
-              Continuar con Google
-            </button>
-          </Box>
+          <button
+            onClick={signInWithGoogle}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '10px 24px',
+              gap: '8px',
+              width: '320px',
+              height: '44px',
+              backgroundColor: '#eeeef7',
+              borderRadius: '4px',
+              color: '#000',
+              fontFamily: 'Montserrat',
+            }}
+          >
+            <GoogleIcon />
+            Continuar con Google
+          </button>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
-      </Container>
+      </Box>
+    </Container>
     // </ThemeProvider>
   )
 }
