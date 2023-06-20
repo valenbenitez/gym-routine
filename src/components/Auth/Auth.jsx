@@ -36,6 +36,7 @@ export default function SignIn() {
   const navigate = useNavigate()
 
   function signInWithGoogle() {
+    event.preventDefault()
     signInWithPopup(auth, provider)
       .then(result => {
         const credential = GoogleAuthProvider.credentialFromResult(result)
@@ -49,6 +50,7 @@ export default function SignIn() {
         const errorMessage = error.message
         const email = error.customData.email
         const credential = GoogleAuthProvider.credentialFromError(error)
+        console.log(errorMessage)
       })
   }
 
