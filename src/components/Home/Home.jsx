@@ -50,12 +50,15 @@ export default function Home() {
   }
 
   const handleStop = () => {
-    setTiempo({ minutos: 0, segundos: 0 })
     setInicio(false)
   }
 
   const handleStart = () => {
     setInicio(true)
+  }
+  const handleReboot = () => {
+    setTiempo({ minutos: 0, segundos: 0 })
+    setInicio(false)
   }
 
   if (typeof token !== 'string') {
@@ -87,7 +90,8 @@ export default function Home() {
       </h2>
       <ButtonGroup variant="contained" aria-label="outlined primary button group">
         <Button onClick={handleStart}>Iniciar</Button>
-        <Button onClick={handleStop}>Reiniciar</Button>
+        <Button onClick={handleStop}>Detener</Button>
+        <Button onClick={handleReboot}>Reiniciar</Button>
       </ButtonGroup>
       <br />
       <div style={{ width: '80%' }}>
