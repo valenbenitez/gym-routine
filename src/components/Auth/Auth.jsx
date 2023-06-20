@@ -55,7 +55,7 @@ export default function SignIn() {
   }
 
   return (
-    <ThemeProvider theme={defaultTheme}>
+    // <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs" sx={{ overflowY: 'hidden', overflowX: 'hidden' }}>
         <CssBaseline />
         <Box
@@ -97,6 +97,6 @@ export default function SignIn() {
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
-    </ThemeProvider>
+    // </ThemeProvider>
   )
 }
