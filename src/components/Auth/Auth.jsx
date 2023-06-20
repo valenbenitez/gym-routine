@@ -11,6 +11,7 @@ import GoogleIcon from '@mui/icons-material/Google'
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth'
 import { app } from '../../config/firebase/firebase'
 import { useNavigate } from 'react-router-dom'
+import FitnessCenterIcon from '@mui/icons-material/FitnessCenter'
 
 export default function SignIn() {
   app
@@ -61,7 +62,8 @@ export default function SignIn() {
         }}
       >
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-          <LockOutlinedIcon />
+          {/* <LockOutlinedIcon /> */}
+          <FitnessCenterIcon />
         </Avatar>
         <Typography component="h1" variant="h5" sx={{ fontFamily: 'Montserrat' }}>
           Iniciar sesión
